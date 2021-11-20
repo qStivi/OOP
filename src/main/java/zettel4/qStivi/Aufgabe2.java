@@ -35,17 +35,13 @@ public class Aufgabe2 {
             binary = modulo + binary;
             n = quotient;
         }
+        while (binary.length() < 7) {
+            binary = "0" + binary;
+        }
         if (negative) {
             binary = "1" + binary;
         } else {
             binary = "0" + binary;
-        }
-        while (binary.length() < 8) {
-            if (negative) {
-                binary = "1" + binary;
-            } else {
-                binary = "0" + binary;
-            }
         }
         return binary;
     }
@@ -73,6 +69,9 @@ public class Aufgabe2 {
         test("-1", toTwosComplement(666), "3", "Two's complement");
         test("-1", toTwosComplement(Integer.MAX_VALUE), "4", "Two's complement");
         test("-1", toTwosComplement(Integer.MIN_VALUE), "4", "Two's complement");
+        test("10000001", toTwosComplement(-127), "5", "Two's complement");
+        test("10000000", toTwosComplement(-128), "6", "Two's complement");
+        test("01111111", toTwosComplement(127), "7", "Two's complement");
     }
 
     private static void test(String expected, String calculated, String testNumber, String testName) {
