@@ -22,6 +22,8 @@ public class Aufgabe3 {
     }
 }
 /*
+Link: https://docs.google.com/spreadsheets/d/1y6KEg52JTS6ACOFXPgbSQirOVc-mDdy9DYvrG6Vyrjo/edit?usp=sharing
+
 Muster bei PileA <= 1
 3, 8, 13, 18
 
