@@ -24,10 +24,10 @@ public class Aufgabe2 {
     private static String toTwosComplement(int n) {
         if (n < -128 || n > 127) return "-1";
         String binary = "";
-        boolean negative = false;
+        boolean isNegativ = false;
         if (n < 0) {
             n += 128;
-            negative = true;
+            isNegativ = true;
         }
         while (n > 0) {
             var quotient = n / 2;
@@ -38,7 +38,7 @@ public class Aufgabe2 {
         while (binary.length() < 7) {
             binary = "0" + binary;
         }
-        if (negative) {
+        if (isNegativ) {
             binary = "1" + binary;
         } else {
             binary = "0" + binary;
