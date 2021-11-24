@@ -2,9 +2,14 @@ package zettel4.qStivi;
 
 public class Aufgabe3 {
     public static void main(String[] args) {
-        System.out.println(canIWin(1, 5));
-        System.out.println(canIWin(1, 6));
-        System.out.println(canIWin(1, 7));
+        System.out.println(canIWin(2, 16)); // Spieler 1
+        System.out.println(canIWin(2, 13)); // Spieler 2
+        System.out.println(canIWin(2, 11)); // Spieler 1
+        System.out.println(canIWin(2, 8)); // Spieler 2
+        System.out.println(canIWin(2, 6)); // Spieler 1
+        System.out.println(canIWin(2, 3)); // Spieler 2
+        System.out.println(canIWin(2, 0)); // Spieler 1
+        System.out.println(canIWin(0, 0)); // Spieler 2
     }
 
     static boolean canIWin(int pileA, int pileB) {
