@@ -59,7 +59,8 @@ public class Aufgabe2 {
         int counter = 0;
         double[] velocities = new double[gps.length / 3 - 1];
         for (int i = 0; i < gps.length - 3; i += 3) {
-            velocities[counter] = Math.sqrt(Math.pow(Math.abs(gps[i] - gps[i + 3]), 2) + Math.pow(Math.abs(gps[i + 1] - gps[i + 4]), 2) +
+            velocities[counter] = Math.sqrt(Math.pow(Math.abs(gps[i] - gps[i + 3]), 2) +
+                    Math.pow(Math.abs(gps[i + 1] - gps[i + 4]), 2) +
                     Math.pow(Math.abs(gps[i + 2] - gps[i + 5]), 2));
             counter++;
         }
