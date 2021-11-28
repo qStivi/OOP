@@ -25,6 +25,7 @@ public class Aufgabe2 {
         System.out.println(distance(gps));
         System.out.println(velocity(gps));
         System.out.println(maxVelocity(gps));
+        System.out.println(Arrays.toString(partialGPS(gps, new double[]{-20, 0, 200}, new double[]{-16.85, -1.237, 200.577})));
 
         System.out.println("-----------------------------------------------------------------");
 
@@ -42,9 +43,16 @@ public class Aufgabe2 {
 
         test("maxVelocity() #1", maxVelocity(new double[]{0, 0, 0, 0, 0, 2, 0, 0, 3}), 2d);
         test("maxVelocity() #2", maxVelocity(new double[]{0, 0, 0, 0, 0, -2, 0, 0, -3}), 2d);
-        test("maxVelocity() #3", velocity(new double[]{3}), -1d);
-        test("maxVelocity() #4", velocity(new double[9]), 0d);
-        test("maxVelocity() #5", velocity(new double[]{}), -1d);
+        test("maxVelocity() #3", maxVelocity(new double[]{3}), -1d);
+        test("maxVelocity() #4", maxVelocity(new double[9]), 0d);
+        test("maxVelocity() #5", maxVelocity(new double[]{}), -1d);
+
+        System.out.println(Arrays.toString(partialGPS(gps, new double[]{-20, 0, 200}, new double[]{-18.5, -0.647, 200.577})));
+        System.out.println(Arrays.toString(partialGPS(gps, new double[]{-18.5, -0.647, 200.577}, new double[]{-20, 0, 200})));
+        System.out.println(Arrays.toString(partialGPS(gps, new double[]{-20, 0, 200.577}, new double[]{-18.5, -0.647, 200})));
+        System.out.println(Arrays.toString(partialGPS(gps, new double[]{}, new double[]{-20, 0, 200})));
+        System.out.println(Arrays.toString(partialGPS(gps, new double[]{-20, 0, 200}, null)));
+        System.out.println(Arrays.toString(partialGPS(gps, new double[]{-20, 0, 200}, new double[]{-18.5, -0.647, 200.577})));
     }
 
     private static double[][] convertToVectorArray(double[] gps) {
@@ -72,11 +80,11 @@ public class Aufgabe2 {
         return distance(gps) / ((gps.length / 3f) - 1); // Divide distance with time
     }
 
-    private static double maxVelocity(double[] gps) { // Aka greates distance
-        if (gps.length % 3 != 0) return -1; // Abort if coordinates are in the wrong format
-        var vectorLengths = new double[gps.length / 3 - 1]; // Create array to store all lenthgs of the arrays
+    private static double maxVelocity(double[] gps) { // Aka grates distance
+        if (gps.length % 3 != 0 || gps.length == 0) return -1; // Abort if coordinates are in the wrong format
+        var vectorLengths = new double[gps.length / 3 - 1]; // Create array to store all lengths of the arrays
         var vectors = convertToVectorArray(gps);
-        // calculate length of every vetor and add it to the total
+        // calculate length of every vector and add it to the total
         for (int i = 0; i < vectors.length; i++) {
             double[] vector = vectors[i];
             vectorLengths[i] = Math.sqrt(Math.pow(vector[3] - vector[0], 2) + Math.pow(vector[4] - vector[1], 2) + Math.pow(vector[5] - vector[2], 2));
@@ -87,6 +95,35 @@ public class Aufgabe2 {
             if (vectorLength > max) max = vectorLength; // Compare to current maximum value and set new value when current is smaller.
         }
         return max;
+    }
+
+    private static double[] partialGPS(double[] gps, double[] start, double[] end) {
+        if (start == null || end == null || start.length == 0 || end.length == 0) {
+            return gps;
+        }
+
+        int startIndex = -1;
+        int endIndex = -1;
+
+        for (int i = 0; i < gps.length - 3; i = i + 3) {
+            if (gps[i] == start[0] && gps[i + 1] == start[1] && gps[i + 2] == start[2]) {
+                startIndex = i;
+                break;
+            }
+        }
+
+        for (int i = 0; i < gps.length - 3; i = i + 3) {
+            if (gps[i] == end[0] && gps[i + 1] == end[1] && gps[i + 2] == end[2]) {
+                endIndex = i;
+                break;
+            }
+        }
+
+        if (startIndex > endIndex || startIndex == -1 || endIndex == -1) {
+            return gps;
+        } else {
+            return Arrays.copyOfRange(gps, startIndex, endIndex + 3);
+        }
     }
 
     private static void test(String name, Object calculated, Object expected) {
