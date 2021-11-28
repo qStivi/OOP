@@ -51,15 +51,15 @@ public class Aufgabe1 {
     }
 
     private static boolean isSorted(float[] numbers, boolean ascending) {
-        return isSortedRecurcive(numbers, numbers.length - 1, ascending); // We iterate from the last to the first elemet.
+        return isSortedRecursive(numbers, numbers.length - 1, ascending); // We iterate from the last to the first elemet.
     }
 
-    private static boolean isSortedRecurcive(float[] arr, int n, boolean ascending) {
+    private static boolean isSortedRecursive(float[] arr, int n, boolean ascending) {
         if (n < 2) {
-            return true; // All elemnts have been checked. Return true.
+            return true; // All elements have been checked. Return true.
         }
 
-        // Compare current value with value "to the left" and apply rule (asceniding/descending). Equal means sorted.
+        // Compare current value with value "to the left" and apply rule (ascending/descending). Equal means sorted.
         if (ascending) {
             if (arr[n] < arr[n - 1]) {
                 return false;
@@ -69,7 +69,7 @@ public class Aufgabe1 {
                 return false;
             }
         }
-        return isSortedRecurcive(arr, n - 1, ascending); // Next two values.
+        return isSortedRecursive(arr, n - 1, ascending); // Next two values.
     }
 
     private static float calculateAverage(float[] numbers) {
