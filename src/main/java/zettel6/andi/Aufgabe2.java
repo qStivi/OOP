@@ -4,9 +4,27 @@ import static java.util.Arrays.copyOfRange;
 
 public class Aufgabe2 {
     public static void main(String[] args) {
+        int[] primes = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97};
         int[] test = primesUpTo(100);
-        for (int value : test) {
-            System.out.println(value);
+
+        test(primes, test);
+    }
+
+    static void test(int[] arr1, int[] arr2){
+        boolean condition = true;
+        if(arr1.length != arr2.length){
+            System.out.println("Your test failed.");
+        } else {
+            for (int i = 0; i < arr1.length; i++){
+                if(arr1[i] != arr2[i]){
+                    condition = false;
+                }
+            }
+            if(condition == true){
+                System.out.println("Your test was successful.");
+            } else {
+                System.out.println("Your test failed.");
+            }
         }
     }
 
