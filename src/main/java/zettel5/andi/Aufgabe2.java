@@ -21,6 +21,9 @@ public class Aufgabe2 {
         double[] start2 = {500, 60, 700};
         double[] end2 = {800, 90, 1000};
 
+        double[] start4 = {-20.0, 0.0, 200.577};
+        double[] end4 = {-5.769, -3.096, 203.667};
+
         System.out.println(distance(gps));
         System.out.println(velocity(gps));
         System.out.println(maxVelocity(gps));
