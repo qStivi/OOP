@@ -32,7 +32,7 @@ public class Aufgabe2 {
         int[] result = new int[n + 1];
         int endIndex = 0;
         if (n < 0) {
-            System.out.println("Your number must not be negative.");
+            System.out.println("Your number has to be zero or positive.");
         } else {
             for (int i = 0; i <= n; i++) { //Filling Array with numbers up to n
                 result[i] = i;
