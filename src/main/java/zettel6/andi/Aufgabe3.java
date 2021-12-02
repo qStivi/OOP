@@ -7,6 +7,7 @@ public class Aufgabe3 {
         System.out.println(krt(9, -2, 0.0001));
         System.out.println(krt(27, 3, 0.00001));
         System.out.println(krt(7, 5, 0.00001));
+        System.out.println(krt(0, 0, 0.00001));
     }
 
     static double krt(double a, double k, double d){
@@ -17,6 +18,12 @@ public class Aufgabe3 {
     }
 
     static double krtH(double a, double k, double d, double x_n){
+        if(a == 0 && k != 0){
+            return 0;
+        }
+        if(k == 0){
+            return -1;
+        }
         double x_n1;
         x_n1 = 1 / k * ((k-1) * x_n + a / Math.pow(x_n, (k - 1)));
         double result = x_n1;
