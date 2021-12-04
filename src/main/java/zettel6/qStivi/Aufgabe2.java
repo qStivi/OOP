@@ -11,9 +11,20 @@ public class Aufgabe2 {
         } else {
             System.out.println("nyeh");
         }
+        System.out.println(Arrays.toString(primesUpTo(0)));
+        System.out.println(Arrays.toString(primesUpTo(-5)));
+        System.out.println(Arrays.toString(primesUpTo(5)));
     }
 
+    /**
+     * das wäre mit Recursion bestimmt viel einfacher
+     * aber da müsste man ja nachdenken
+     * XD
+     */
     private static int[] primesUpTo(int n) {
+        if (n < 1) {
+            return null;
+        }
         // create array of number from 2 to n
         var numbers = new int[n - 1];
         for (int i = 2; i < n + 1; i++) {
