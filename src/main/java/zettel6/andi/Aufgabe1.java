@@ -17,7 +17,7 @@ public class Aufgabe1 {
         return rOne + rTwo;
     }
 
-    static double parallelCircuit(double rOne, double rTwo){
+    static double parallelCircuit(double rOne, double rTwo) {
         return (rOne * rTwo) / (rOne + rTwo);
     }
 }

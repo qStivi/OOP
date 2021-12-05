@@ -16,51 +16,45 @@ public class Aufgabe2 {
         System.out.println(Arrays.toString(primesUpTo(5)));
     }
 
-    /**
-     * das wäre mit Recursion bestimmt viel einfacher
-     * aber da müsste man ja nachdenken
-     * XD
-     */
-    private static int[] primesUpTo(int n) {
-        if (n < 1) {
-            return null;
+    static int[] primesUpTo(int n) {
+        if (n < 2) {
+            return new int[]{};
         }
-        // create array of number from 2 to n
-        var numbers = new int[n - 1];
-        for (int i = 2; i < n + 1; i++) {
-            numbers[i - 2] = i;
+        int[] numbersToN = new int[n - 1];
+        for (int i = 2; i <= n; i++) {
+            numbersToN[(i - 2)] = i;
         }
-        // applie rules mentioned in task. but replacing numbers that are supposed to be removed bc arrays are not lists
-        for (int j = 0; j < numbers.length; j++) {
-            int number = numbers[j];
-            if (number != -1) {
-                for (int i = j + 1; i < numbers.length; i++) {
-                    int multiple = numbers[i];
-                    if (multiple % number == 0) {
-                        numbers[i] = -1;
-                    }
+        for (int i = 0; i <= Math.sqrt(n) + 2; i++) {
+            if (i >= numbersToN.length) {
+                break;
+            }
+            if (numbersToN[i] == 0) {
+                continue;
+            }
+            for (int j = i + 1; j <= n - 2; j++) {
+                if (numbersToN[j] % numbersToN[i] == 0) {
+                    numbersToN[j] = 0;
                 }
             }
         }
-        // getting size of array of remaining numbers
-        var primesLength = 0;
-        for (int number : numbers) {
-            if (number != -1) {
-                primesLength++;
+        return filterZeros(numbersToN);
+    }
+
+    public static int[] filterZeros(int[] toBeFiltered) {
+        int elementCount = 0;
+        for (int i = 0; i < toBeFiltered.length; i++) {
+            if (toBeFiltered[i] != 0) {
+                elementCount++;
             }
         }
-        // adding only number that are not -1 to new array
-        var primes = new int[primesLength];
-        for (int number : numbers) {
-            if (number != -1) {
-                for (int j = 0; j < primesLength; j++) {
-                    if (primes[j] == 0) {
-                        primes[j] = number;
-                        break;
-                    }
-                }
+        int[] filtered = new int[elementCount];
+        int k = 0;
+        for (int i = 0; i < toBeFiltered.length; i++) {
+            if (toBeFiltered[i] != 0) {
+                filtered[k] = toBeFiltered[i];
+                k++;
             }
         }
-        return primes;
+        return filtered;
     }
 }
