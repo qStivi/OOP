@@ -24,11 +24,11 @@ public class Playfair {
         }
     }
 
-    public static void main(String[] args) {
-        new Playfair("Apfelstrudel").printSquare();
+    public Character[][] getPlayfairSquare() {
+        return playfairSquare;
     }
 
-    private boolean characterInString(String s, Character character) {
+    boolean characterInString(String s, Character character) {
         for (char c : s.toCharArray()) {
             if (c == character) {
                 return true;
