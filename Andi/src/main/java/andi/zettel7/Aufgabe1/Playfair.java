@@ -7,6 +7,7 @@ public class Playfair {
     private final Character[][] playfairSquare = new Character[5][5];
     private final static String LETTERS = "ABCDEFGHIKLMNOPQRSTUVWXYZ";
 
+
     public Playfair(String codeword) {
         codeword = clearDuplications(codeword.toUpperCase(), 0);
         codeword = getMissingLetters(codeword);
@@ -18,6 +19,10 @@ public class Playfair {
                 counter++;
             }
         }
+    }
+
+    public Character[][] getPlayfairSquare(){
+        return playfairSquare;
     }
 
     public void printSquare() {
