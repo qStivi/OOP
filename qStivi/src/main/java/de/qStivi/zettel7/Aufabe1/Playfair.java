@@ -1,4 +1,4 @@
-package de.qStivi.zettel7;
+package de.qStivi.zettel7.Aufabe1;
 
 import java.util.Arrays;
 
