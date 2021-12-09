@@ -27,7 +27,7 @@ public class Position {
         return null;
     }
 
-    static private String cleanWord(String word) {
+    private String cleanWord(String word) {
         word = word.replaceAll("[^a-zA-Z]", "").toUpperCase();
         for (int i = 0; i < word.length() - 1; i += 3) {
             if (word.charAt(i) == word.charAt(i + 1)) {
@@ -36,32 +36,32 @@ public class Position {
                 word = word.substring(0, i + 2) + " " + word.substring(i + 2);
             }
         }
-        if (word.length() % 2 != 0) {
+        if (word.charAt(word.length() - 2) == ' ') {
             word += "A";
         }
         return word;
     }
 
-    public String encode(String word){
+    public String encode(String word) {
         String result = "";
-        for (int i = 0; i < word.length() - 1; i += 3){
+        for (int i = 0; i < word.length() - 1; i += 3) {
             Position pos1 = findInSquare(word.charAt(i));
             Position pos2 = findInSquare(word.charAt(i + 1));
 
-            if (pos1.y == pos2.y){
-                if (pos2.x + 1 > 4){
-                    result += String.valueOf(playfairSquare[pos2.y][pos2.x]) + String.valueOf(playfairSquare[pos2.y][0]) + " ";
+            if (pos1.y == pos2.y) {
+                if (pos2.x + 1 > 4) {
+                    result += String.valueOf(playfairSquare[pos2.y][pos2.x]) + playfairSquare[pos2.y][0] + " ";
                 } else {
-                    result += String.valueOf(playfairSquare[pos2.y][pos2.x]) + String.valueOf(playfairSquare[pos2.y][pos2.x + 1]) + " ";
+                    result += String.valueOf(playfairSquare[pos2.y][pos2.x]) + playfairSquare[pos2.y][pos2.x + 1] + " ";
                 }
-            } else if(pos1.x == pos2.x){
-                if (pos2.y + 1 > 4){
-                    result += String.valueOf(playfairSquare[pos2.y][pos2.x]) + String.valueOf(playfairSquare[0][pos2.x]) + " ";
-                }else {
-                    result += String.valueOf(playfairSquare[pos2.y][pos2.x]) + String.valueOf(playfairSquare[pos2.y + 1][pos2.x]) + " ";
+            } else if (pos1.x == pos2.x) {
+                if (pos2.y + 1 > 4) {
+                    result += String.valueOf(playfairSquare[pos2.y][pos2.x]) + playfairSquare[0][pos2.x] + " ";
+                } else {
+                    result += String.valueOf(playfairSquare[pos2.y][pos2.x]) + playfairSquare[pos2.y + 1][pos2.x] + " ";
                 }
             } else {
-                result += String.valueOf(playfairSquare[pos1.y][pos2.x]) + String.valueOf(playfairSquare[pos2.y][pos1.x]) + " ";
+                result += String.valueOf(playfairSquare[pos1.y][pos2.x]) + playfairSquare[pos2.y][pos1.x] + " ";
             }
         }
         return result;
@@ -71,12 +71,7 @@ public class Position {
         Position pos = new Position(new Playfair("Apfelstrudel").getPlayfairSquare());
         System.out.println(pos.x + " " + pos.y);
         String s = "APELPTMWAUHK";
-        s = cleanWord(s);
+        s = pos.encode(pos.cleanWord(s));
         System.out.println(s);
-        s = pos.encode(s);
-        System.out.println(s);
-        String d = "Mittwoch";
-        d = cleanWord(d);
-        System.out.println(d);
     }
 }
