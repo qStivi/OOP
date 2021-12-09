@@ -1,5 +1,6 @@
 package de.qStivi.zettel7.Aufgabe2;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -8,14 +9,14 @@ public class Library {
     private Date lastModified;
     private DVD[] items;
 
-    public Library(String name, Date lastModified) {
+    public Library(String name) {
         this.name = name;
-        this.lastModified = lastModified;
+        this.lastModified = new Date();
     }
 
-    public Library(String name, Date lastModified, DVD[] items) {
+    public Library(String name, DVD[] items) {
         this.name = name;
-        this.lastModified = lastModified;
+        this.lastModified = new Date();
         this.items = items;
     }
 
@@ -49,7 +50,7 @@ public class Library {
         var stone2 = new DVD("Dr. STONE: STONE WARS", "978-1974705061", shinyaIino, new Actor[]{yuusukeKobayashi});
         var klk = new DVD("Kill la Kill", "978-3-8420-1254-7", hiroyukiImaishi, new Actor[]{amiKoshimizu});
 
-        var myLibrary = new Library("AniList", new Date(), new DVD[]{bna, aot1, aot2});
+        var myLibrary = new Library("AniList", new DVD[]{bna, aot1, aot2});
         myLibrary.addDVD(kny);
         myLibrary.addDVD(danmachi3);
         myLibrary.addDVD(danmachi3);
@@ -64,20 +65,19 @@ public class Library {
     }
 
     public Date getLastModified() {
-        return lastModified;
+        return this.lastModified;
     }
 
     public DVD[] getItems() {
-        return items;
+        return this.items;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     void addDVD(DVD dvd) {
-        var newItems = new DVD[items.length + 1];
-        System.arraycopy(this.items, 0, newItems, 0, this.items.length);
+        var newItems = Arrays.copyOf(this.items, this.items.length + 1);
         newItems[this.items.length] = dvd;
         this.items = newItems;
         this.lastModified = new Date();
@@ -85,10 +85,10 @@ public class Library {
 
     void removeDVD(String title) {
         var itemsToBeRemoved = getAllByName(title);
-        for (int j = 0; j < items.length; j++) {
+        for (int j = 0; j < this.items.length; j++) {
             for (DVD dvd : itemsToBeRemoved) {
-                if (items[j].equals(dvd)) {
-                    items[j] = null;
+                if (this.items[j].equals(dvd)) {
+                    this.items[j] = null;
                     break;
                 }
             }
@@ -119,9 +119,9 @@ public class Library {
         }
         var itemsWithName = new DVD[numberOfItems];
         for (int i = 0; i < numberOfItems; i++) {
-            for (int j = 0; j < this.items.length; j++) {
-                if (this.items[j].getName().equals(title)) {
-                    itemsWithName[i] = this.items[j];
+            for (DVD item : this.items) {
+                if (item.getName().equals(title)) {
+                    itemsWithName[i] = item;
                 }
             }
         }
