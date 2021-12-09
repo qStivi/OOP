@@ -75,5 +75,8 @@ public class Position {
         System.out.println(s);
         s = pos.encode(s);
         System.out.println(s);
+        String d = "Mittwoch";
+        d = cleanWord(d);
+        System.out.println(d);
     }
 }

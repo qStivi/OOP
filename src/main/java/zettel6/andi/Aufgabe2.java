@@ -5,7 +5,7 @@ import static java.util.Arrays.copyOfRange;
 public class Aufgabe2 {
     public static void main(String[] args) {
         int[] primes = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97};
-        int[] test = primesUpTo(100);
+        int[] test = primesUpTo(10000000);
 
         test(primes, test);
     }
@@ -20,7 +20,7 @@ public class Aufgabe2 {
                     condition = false;
                 }
             }
-            if(condition == true){
+            if(condition){
                 System.out.println("Your test was successful.");
             } else {
                 System.out.println("Your test failed.");
