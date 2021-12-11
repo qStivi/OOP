@@ -42,16 +42,16 @@ public class Aufgabe2 {
 
     public static int[] filterZeros(int[] toBeFiltered) {
         int elementCount = 0;
-        for (int i = 0; i < toBeFiltered.length; i++) {
-            if (toBeFiltered[i] != 0) {
+        for (int j : toBeFiltered) {
+            if (j != 0) {
                 elementCount++;
             }
         }
         int[] filtered = new int[elementCount];
         int k = 0;
-        for (int i = 0; i < toBeFiltered.length; i++) {
-            if (toBeFiltered[i] != 0) {
-                filtered[k] = toBeFiltered[i];
+        for (int j : toBeFiltered) {
+            if (j != 0) {
+                filtered[k] = j;
                 k++;
             }
         }
