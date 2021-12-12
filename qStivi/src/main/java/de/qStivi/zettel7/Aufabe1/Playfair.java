@@ -38,15 +38,11 @@ public class Playfair {
     }
 
     public static void main(String[] args) {
-        var yee = new Playfair("Apfelstrudel").findInSquare('L');
         var yo = new Playfair("Apfelstrudel");
-        System.out.println(yee.x);
-        System.out.println(yee.y);
-        System.out.println(yo.cleanWord("guz89r03ßooooooooooooooooooüpeigj0ßvdeppppppppppppppppppppppppppppppppppppppppppppppwü+fkgpqrw3ükdlgio"));
-        System.out.println(yo.cleanWord("56Bãõ~ç¥«∑€®†Ω¨¨øπ•æœ@a∆ºª©ƒ∂‚¥≈ç√n∫~~∞7890ß´´&A/()=?Ü*``Ön∂∑€®≠¿•eπ"));
-        System.out.println(yo.cleanWord("Hallo"));
-        System.out.println(yo.cleanWord("Hell"));
-        System.out.println(yo.cleanWord("HalloHallo"));
+        yo.printSquare();
+        System.out.println("G€h€îm");
+        System.out.println(yo.cleanWord("G€h€îm"));
+        System.out.println(yo.encode(yo.cleanWord("G€h€îm")));
     }
 
     /**
@@ -192,8 +188,10 @@ public class Playfair {
     }
 
     /**
-     * @param strg
-     * @return
+     * Returns the first char in LETTERS which is not already in the provided {@link String}
+     *
+     * @param strg is the {@link String} to be checked against LETTERS.
+     * @return a char.
      */
     private char getFirstMissing(String strg) {
         var chars = strg.toCharArray();
@@ -202,5 +200,36 @@ public class Playfair {
             missing = missing.replaceAll(String.valueOf(c), "");
         }
         return missing.toCharArray()[0];
+    }
+
+    /**
+     * Encodes a word like specified in the task.
+     *
+     * @param word is a {@link String} to be encoded.
+     * @return the encoded {@link String}.
+     */
+    public String encode(String word) {
+        String result = "";
+        for (int i = 0; i < word.length() - 1; i += 3) { // For every letter
+            Position pos1 = findInSquare(word.charAt(i));
+            Position pos2 = findInSquare(word.charAt(i + 1));
+
+            if (pos1.y == pos2.y) { // If they are in same row
+                if (pos2.x + 1 > 4) { // If it is the last in its row
+                    result += String.valueOf(playfairSquare[pos2.y][pos2.x]) + playfairSquare[pos2.y][0];
+                } else {
+                    result += String.valueOf(playfairSquare[pos2.y][pos2.x]) + playfairSquare[pos2.y][pos2.x + 1];
+                }
+            } else if (pos1.x == pos2.x) { // If they are in the same collumn
+                if (pos2.y + 1 > 4) { // If it is the last in its collumn
+                    result += playfairSquare[pos2.y][pos2.x] + playfairSquare[0][pos2.x].toString();
+                } else {
+                    result += playfairSquare[pos2.y][pos2.x] + playfairSquare[pos2.y + 1][pos2.x].toString();
+                }
+            } else { // If they are not in the same row or collumn
+                result += playfairSquare[pos1.y][pos2.x] + playfairSquare[pos2.y][pos1.x].toString();
+            }
+        }
+        return result;
     }
 }
