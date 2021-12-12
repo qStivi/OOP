@@ -1,6 +1,5 @@
 package andi.zettel7.Aufgabe2;
 
-import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.Date;
 

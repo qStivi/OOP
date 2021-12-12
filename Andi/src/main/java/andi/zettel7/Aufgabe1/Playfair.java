@@ -119,15 +119,15 @@ public class Playfair {
 
             if (pos1.y == pos2.y) {
                 if (pos2.x + 1 > 4) {
-                    result += String.valueOf(playfairSquare[pos2.y][pos2.x]) + playfairSquare[pos2.y][0] + " ";
+                    result += String.valueOf(playfairSquare[pos1.y][pos1.x + 1]) + playfairSquare[pos2.y][0] + " ";
                 } else {
-                    result += String.valueOf(playfairSquare[pos2.y][pos2.x]) + playfairSquare[pos2.y][pos2.x + 1] + " ";
+                    result += String.valueOf(playfairSquare[pos1.y][pos1.x + 1]) + playfairSquare[pos2.y][pos2.x + 1] + " ";
                 }
             } else if (pos1.x == pos2.x) {
                 if (pos2.y + 1 > 4) {
-                    result += String.valueOf(playfairSquare[pos2.y][pos2.x]) + playfairSquare[0][pos2.x] + " ";
+                    result += String.valueOf(playfairSquare[pos1.y + 1][pos1.x]) + playfairSquare[0][pos2.x] + " ";
                 } else {
-                    result += String.valueOf(playfairSquare[pos2.y][pos2.x]) + playfairSquare[pos2.y + 1][pos2.x] + " ";
+                    result += String.valueOf(playfairSquare[pos1.y + 1][pos1.x]) + playfairSquare[pos2.y + 1][pos2.x] + " ";
                 }
             } else {
                 result += String.valueOf(playfairSquare[pos1.y][pos2.x]) + playfairSquare[pos2.y][pos1.x] + " ";
@@ -138,7 +138,7 @@ public class Playfair {
 
     public static void main(String[] args) {
         Playfair play = new Playfair("Apfelstrudel");
-        String s = "Apfelstrudel";
+        String s = "APELPTMWAUHK";
         s = play.encode(play.cleanWord(s));
 
         String s1 = "Regentanz";
