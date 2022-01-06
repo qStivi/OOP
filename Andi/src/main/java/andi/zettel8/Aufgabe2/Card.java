@@ -1,11 +1,16 @@
 package andi.zettel8.Aufgabe2;
 
 public class Card {
-    private String name;
+    private final String name;
     private final String type;
-    private String releaseDate;
+    private final String releaseDate;
 
-    public Card(String name, String releaseDate, final String type) {
+    private static final String EFFECT_MONSTER = "EFFECT MONSTER";
+    private static final String NORMAL_MONSTER = "NORMAL MONSTER";
+    private static final String SPELL = "SPELL";
+    private static final String TRAP = "TRAP";
+
+    public Card(String name, String releaseDate, String type) {
         this.name = name;
         this.releaseDate = releaseDate;
         this.type = type;
