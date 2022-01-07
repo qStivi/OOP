@@ -6,12 +6,14 @@ public class Caesar {
         a = Character.toUpperCase(a);
         b = Character.toUpperCase(b);
 
-        int difference = Math.abs(b - a);
+        int difference = b - a;
         Character[] word = new Character[coded.length()];
         for (int i = 0; i < coded.length(); i++) {
             if (coded.charAt(i) + difference > 90) {
-                int s = coded.charAt(i) + difference;
-                s = s - 90 + 64;
+                int s = coded.charAt(i) + difference - 26;
+                word[i] = (char) (s);
+            } else if (coded.charAt(i) + difference < 64) {
+                int s = coded.charAt(i) + difference + 26;
                 word[i] = (char) (s);
             } else {
                 word[i] = (char) (coded.charAt(i) + difference);

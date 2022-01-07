@@ -1,8 +1,7 @@
 package andi.zettel8.Aufgabe3;
 
-import java.util.Locale;
-
 public class HexaDecimal implements Number{
+
     private String num;
 
     public HexaDecimal(String num) {
@@ -20,7 +19,7 @@ public class HexaDecimal implements Number{
         return res;
     }
 
-    public String toHexaValue(int value){
+    private String toHexaValue(int value){
         String res = "";
         final String hexString = "0123456789ABCDEF";
         while(value != 0){
