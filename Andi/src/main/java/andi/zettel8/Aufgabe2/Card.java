@@ -5,15 +5,15 @@ public class Card implements Comparable<Card> {
     private final String type;
     private final int releaseYear;
 
-    private static final String EFFECT_MONSTER = "EFFECT MONSTER";
-    private static final String NORMAL_MONSTER = "NORMAL MONSTER";
-    private static final String SPELL = "SPELL";
-    private static final String TRAP = "TRAP";
+    public static final String EFFECT_MONSTER = "EFFECT MONSTER";
+    public static final String NORMAL_MONSTER = "NORMAL MONSTER";
+    public static final String SPELL = "SPELL";
+    public static final String TRAP = "TRAP";
 
-    public Card(String name, int releaseDate, String type) {
-        this.name = name;
-        this.releaseYear = releaseDate;
+    public Card(int releaseYear, String type, String name) {
+        this.releaseYear = releaseYear;
         this.type = type;
+        this.name = name;
     }
 
     public String getName() {
@@ -59,10 +59,4 @@ public class Card implements Comparable<Card> {
         }
         return 0;
     }
-
-    public static void main(String[] args) {
-
-    }
-
-
 }

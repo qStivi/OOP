@@ -1,11 +1,14 @@
-import andi.zettel8.Aufgabe1.Caesar;
+package andi.zettel8.Aufgabe1;
+
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class CaesarTest {
 
-    @org.junit.jupiter.api.Test
+    @Test
     void decode() {
-
         String a = Caesar.decode("HGXBO", 'W' , 'Z' );
         Assertions.assertEquals("KJAER", a);
 

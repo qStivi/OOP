@@ -35,11 +35,4 @@ public class HexaDecimal implements Number{
         this.num = toHexaValue(value);
     }
 
-    public static void main(String[] args) {
-        HexaDecimal one = new HexaDecimal("33D58");
-        HexaDecimal two = new HexaDecimal("52A");
-        System.out.println(one.toIntValue());
-        one.add(two);
-        System.out.println(one.toIntValue());
-    }
 }
