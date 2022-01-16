@@ -1,9 +1,10 @@
-package de.qStivi.zettel8.Aufgabe3;
+package Aufgabe3;
 
 public interface Number {
-    int toIntValue();
 
-    void fromIntValue(int value);
+    int toIntValue(); //Gibt Wert zurück
+
+    void fromIntValue(int value); //Weist Wert zu
 
     default void add(Number number) {
         this.fromIntValue(this.toIntValue() + number.toIntValue());
@@ -20,4 +21,5 @@ public interface Number {
     default void divide(Number number) {
         this.fromIntValue(this.toIntValue() / number.toIntValue());
     }
+
 }

@@ -11,9 +11,9 @@ public class Caesar {
         int shifted = ((int) a) - ((int) b);
         char[] letters = coded.toCharArray();
 
-        for(char letter : letters) {
+        for (char letter : letters) {
             int asciiCode = letter - shifted;
-            if(asciiCode >= 90) {
+            if (asciiCode >= 90) {
                 asciiCode = asciiCode - 26;
             }
             sb.append((char) asciiCode);

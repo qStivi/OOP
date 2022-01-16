@@ -1,4 +1,4 @@
-package de.qStivi.zettel8.Aufgabe1;
+package Aufgabe1;
 
 public class Caesar {
 

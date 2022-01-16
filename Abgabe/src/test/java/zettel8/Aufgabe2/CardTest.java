@@ -1,5 +1,6 @@
-package de.qStivi.zettel8.Aufgabe2;
+package zettel8.Aufgabe2;
 
+import Aufgabe2.Card;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

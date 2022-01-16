@@ -1,11 +1,11 @@
-package de.qStivi.zettel8.Aufgabe2;
+package Aufgabe2;
 
 public class Card implements Comparable<Card> {
-    private final String name;
     public static final String EFFECT_MONSTER = "EFFECT MONSTER";
     public static final String NORMAL_MONSTER = "NORMAL MONSTER";
     public static final String SPELL = "SPELL";
     public static final String TRAP = "TRAP";
+    private final String name;
     private final String type;
     private final int releaseYear;
 
