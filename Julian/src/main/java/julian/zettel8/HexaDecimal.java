@@ -1,3 +1,4 @@
+package julian.zettel8;
 public class HexaDecimal implements Number {
 
     private String value;

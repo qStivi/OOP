@@ -1,3 +1,5 @@
+package julian.zettel8;
+
 public interface Number {
 
     int toIntValue(); //Gibt Wert zurück

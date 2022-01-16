@@ -40,9 +40,22 @@ public class Playfair {
     public static void main(String[] args) {
         var yo = new Playfair("Apfelstrudel");
         yo.printSquare();
+        System.out.println();
         System.out.println("5üp€® G€h€îm€5 W0®7");
         System.out.println(yo.cleanWord("5üp€® G€h€îm€5 W0®7"));
         System.out.println(yo.encode(yo.cleanWord("5üp€® G€h€îm€5 W0®7")));
+        System.out.println();
+        System.out.println("Ich habe keine Lust mehr.");
+        System.out.println(yo.cleanWord("Ich habe keine Lust mehr."));
+        System.out.println(yo.encode(yo.cleanWord("Ich habe keine Lust mehr.")));
+        System.out.println();
+        System.out.println("Apfelstrudel");
+        System.out.println(yo.cleanWord("Apfelstrudel"));
+        System.out.println(yo.encode(yo.cleanWord("Apfelstrudel")));
+        System.out.println();
+        System.out.println("Pafelstrudel");
+        System.out.println(yo.cleanWord("Pafelstrudel"));
+        System.out.println(yo.encode(yo.cleanWord("Pafelstrudel")));
     }
 
     /**
@@ -89,7 +102,7 @@ public class Playfair {
 
         // Insert Xes
         for (int i = 0; i < word.length() - 1; i++) {
-            var charArray = word.toCharArray();
+            var charArray = word.toLowerCase().toCharArray();
             if (charArray[i] == charArray[i + 1]) {
                 word = word.substring(0, i + 1) + "X" + word.substring(i + 1);
             }
@@ -210,23 +223,27 @@ public class Playfair {
      */
     public String encode(String word) {
         String result = "";
-        for (int i = 0; i < word.length() - 1; i += 3) { // For every letter
+        for (int i = 0; i < word.length() - 1; i += 3) {
             Position pos1 = findInSquare(word.charAt(i));
             Position pos2 = findInSquare(word.charAt(i + 1));
 
-            if (pos1.y == pos2.y) { // If they are in same row
-                if (pos2.x + 1 > 4) { // If it is the last in its row
-                    result += String.valueOf(playfairSquare[pos2.y][pos2.x]) + playfairSquare[pos2.y][0];
+            if (pos1.y == pos2.y) { // If is in same row
+                if (pos1.x + 1 > 4) { // If is last
+                    result += playfairSquare[pos1.y][0] + playfairSquare[pos2.y][pos2.x + 1].toString();
+                } else if (pos2.x + 1 > 4) {
+                    result += playfairSquare[pos1.y][pos1.x + 1] + playfairSquare[pos2.y][0].toString();
                 } else {
-                    result += String.valueOf(playfairSquare[pos2.y][pos2.x]) + playfairSquare[pos2.y][pos2.x + 1];
+                    result += playfairSquare[pos1.y][pos1.x + 1] + playfairSquare[pos2.y][pos2.x + 1].toString();
                 }
-            } else if (pos1.x == pos2.x) { // If they are in the same collumn
-                if (pos2.y + 1 > 4) { // If it is the last in its collumn
-                    result += playfairSquare[pos2.y][pos2.x] + playfairSquare[0][pos2.x].toString();
+            } else if (pos1.x == pos2.x) { // If is in same collumn
+                if (pos2.y + 1 > 4) { // If is last
+                    result += playfairSquare[pos1.y + 1][pos1.x] + playfairSquare[0][pos2.x].toString();
+                } else if (pos1.y + 1 > 4) {
+                    result += playfairSquare[0][pos1.x] + playfairSquare[pos2.y + 1][pos2.x].toString();
                 } else {
-                    result += playfairSquare[pos2.y][pos2.x] + playfairSquare[pos2.y + 1][pos2.x].toString();
+                    result += playfairSquare[pos1.y + 1][pos1.x] + playfairSquare[pos2.y + 1][pos2.x].toString();
                 }
-            } else { // If they are not in the same row or collumn
+            } else { // If it not in same row or collumn
                 result += playfairSquare[pos1.y][pos2.x] + playfairSquare[pos2.y][pos1.x].toString();
             }
         }

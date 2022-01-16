@@ -8,6 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="qStivi" />
         <module name="Andi" />
+        <module name="Abgabe" />
+        <module name="Julian" />
       </profile>
     </annotationProcessing>
   </component>

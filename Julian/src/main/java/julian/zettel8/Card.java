@@ -1,3 +1,5 @@
+package julian.zettel8;
+
 import java.util.Arrays;
 
 public class Card implements Comparable<Card> {
@@ -83,7 +85,6 @@ public class Card implements Comparable<Card> {
         System.out.println(Arrays.toString(arr));
 
     }
-
 
 
 }
