@@ -1,61 +1,42 @@
 package de.qStivi.zettel8.Aufgabe2;
 
 public class Card implements Comparable<Card> {
+    public static final int NORMAL_MONSTER = 0;
+    public static final int EFFECT_MONSTER = 1;
+    public static final int SPELL = 2;
+    public static final int TRAP = 3;
     private final String name;
-    public static final String EFFECT_MONSTER = "EFFECT MONSTER";
-    public static final String NORMAL_MONSTER = "NORMAL MONSTER";
-    public static final String SPELL = "SPELL";
-    public static final String TRAP = "TRAP";
-    private final String type;
-    private final int releaseYear;
+    private final int type;
+    private final int release;
 
-    public Card(String name, String type, int releaseYear) {
-        this.releaseYear = releaseYear;
-        this.type = type;
+    public Card(String name, int type, int release) {
         this.name = name;
+        this.type = type;
+        this.release = release;
+    }
+
+    public int getRelease() {
+        return release;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getReleaseDate() {
-        return releaseYear;
-    }
-
-    public String getType() {
+    public int getType() {
         return type;
     }
 
+    @Override
     public int compareTo(Card o) {
-        int sortYear = this.releaseYear - o.releaseYear;
-        if (sortYear != 0) {
-            return sortYear;
-        } else {
-            if (!this.type.equals(o.type)) {
-
-                if (this.type.equals(NORMAL_MONSTER)) {
-                    return -1;
-                } else if (o.type.equals(NORMAL_MONSTER)) {
-                    return 1;
-                }
-
-                if (this.type.equals(EFFECT_MONSTER)) {
-                    return -1;
-                } else if (o.type.equals(EFFECT_MONSTER)) {
-                    return 1;
-                }
-
-                if (this.type.equals(SPELL)) {
-                    return -1;
-                } else if (o.type.equals(SPELL)) {
-                    return 1;
-                }
-
-            } else {
-                return this.name.compareTo(o.name);
+        var result = this.release - o.release;
+        if (result == 0) {
+            result = this.type - o.type;
+            if (result == 0) {
+                result = this.name.compareTo(o.name);
             }
         }
-        return 0;
+        return result;
     }
 }
+
