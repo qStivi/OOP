@@ -20,32 +20,24 @@ public class GoodsSegment {
         if (sumWeight() + crate.weight > maxWeight) {
             System.out.println("Das würde die zulässige maximale Tragkraft überschreiten.");
         } else {
-            int pos1 = 0;
-            while (true) {
-                int pos2 = getEmptyCompartment(pos1);
-                if (doesItFit(crate, pos2)) {
-                    compartments[pos2] = crate;
-                    break;
-                } else if (pos2 == compartments.length - 1) {
-                    System.out.println("Die Kiste ist zu groß.");
-                    break;
-                }
-                pos1 = pos2 + 1;
+            if(getEmptyCompartment(0) == -1){
+                System.out.println("Das Lagerregal ist voll.");
+            } else if (doesItFit(crate)) {
+                compartments[getEmptyCompartment(0)] = crate;
+            } else {
+                System.out.println("Die Kiste ist zu groß.");
             }
         }
     }
 
-    private boolean doesItFit(GoodsCrate crate, int pos) {
-        if (compartments[pos].depth >= crate.depth && compartments[pos].height / 3 >= crate.height &&
-                compartments[pos].width / 3 >= crate.width) {
+    private boolean doesItFit(GoodsCrate crate) {
+        if (depth >= crate.depth && height / 3 >= crate.height && width / 3 >= crate.width) {
             return true;
         }
-        if (compartments[pos].depth >= crate.width && compartments[pos].height / 3 >= crate.depth &&
-                compartments[pos].width / 3 >= crate.height) {
+        if (depth >= crate.width && height / 3 >= crate.depth && width / 3 >= crate.height) {
             return true;
         }
-        if (compartments[pos].depth >= crate.height && compartments[pos].height / 3 >= crate.width &&
-                compartments[pos].width / 3 >= crate.depth) {
+        if (depth >= crate.height && height / 3 >= crate.width && width / 3 >= crate.depth) {
             return true;
         }
 
@@ -61,12 +53,11 @@ public class GoodsSegment {
     }
 
     private int getEmptyCompartment(int pos) {
-        int result = 0;
         for (int i = pos; i < compartments.length; i++) {
             if (compartments[i] == null) {
-                result = i;
+                return i;
             }
         }
-        return result;
+        return -1;
     }
 }
