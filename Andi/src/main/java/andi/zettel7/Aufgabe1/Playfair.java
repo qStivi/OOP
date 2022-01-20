@@ -142,7 +142,7 @@ public class Playfair {
 
     public static void main(String[] args) {
         Playfair play = new Playfair("Apfelstrudel");
-        String s = "IchhabekeineLustmehr";
+        String s = "Apfelstrudel";
 
         s = play.encode(play.cleanWord(s));
 

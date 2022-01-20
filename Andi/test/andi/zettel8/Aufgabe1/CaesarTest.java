@@ -3,8 +3,6 @@ package andi.zettel8.Aufgabe1;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class CaesarTest {
 
     @Test
