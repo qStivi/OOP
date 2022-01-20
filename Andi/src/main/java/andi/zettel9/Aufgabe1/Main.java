@@ -3,15 +3,6 @@ package andi.zettel9.Aufgabe1;
 import java.util.Locale;
 
 public class Main {
-    public static void main(String[] args) {
-        String a = "Frühstück";
-        String b = "Kcütshürf";
-        System.out.println(isReverse(a,b));
-
-        String one = "Da steht ein rotes Auto und ein blaues Auto.";
-        System.out.println(replace(one, "Auto", "Spielzeug"));
-
-    }
 
     public static String replace(String source, String search, String replace){
         if(source.indexOf(search) != -1) {
