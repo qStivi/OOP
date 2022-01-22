@@ -47,7 +47,10 @@ public class GoodsSegment {
     private double sumWeight() {
         double result = 0;
         for (GoodsCrate crate : compartments) {
-            result += crate.weight;
+            if(crate!=null){
+                result += crate.weight;
+            }
+
         }
         return result;
     }
