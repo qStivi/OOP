@@ -1,4 +1,4 @@
-import java.util.Arrays;
+package julian.zettel9.Aufgabe1;
 
 public class StringManipulation {
 

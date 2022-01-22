@@ -1,3 +1,5 @@
+package julian.zettel9.Aufgabe3;
+
 public class GoodsCrate {
 
     public double height;

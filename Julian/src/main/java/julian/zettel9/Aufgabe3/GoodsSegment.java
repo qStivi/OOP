@@ -1,3 +1,5 @@
+package julian.zettel9.Aufgabe3;
+
 import java.util.Arrays;
 
 public class GoodsSegment {
