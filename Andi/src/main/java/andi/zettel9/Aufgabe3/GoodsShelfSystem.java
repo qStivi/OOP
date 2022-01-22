@@ -11,19 +11,20 @@ public class GoodsShelfSystem {
                 new GoodsSegment(12, 54, 61, 60)};
     }
 
-    public boolean findSegmentForCrate(GoodsCrate crate){
+    public boolean findSegmentForCrate(GoodsCrate crate) {
         int pos = -1;
         double difference = Double.MAX_VALUE;
-        for(int i = 0; i < segments.length; i++){
-            if(doesItFit(segments[i], crate)){
-                double volumeSegement = segments[i].depth * segments[i].width * segments[i].height;
+        for (int i = 0; i < segments.length; i++) {
+            if (doesItFit(segments[i], crate)) {
+                double volumeCompartment = segments[i].depth * segments[i].width / 3 * segments[i].height / 3;
                 double volumeCrate = crate.depth * crate.width * crate.height;
-                if(difference > volumeSegement - volumeCrate){
+                if (difference > volumeCompartment - volumeCrate) {
+                    difference = volumeCompartment - volumeCrate;
                     pos = i;
                 }
             }
         }
-        if(pos != -1){
+        if (pos != -1) {
             segments[pos].addCrate(crate);
             return true;
         }
@@ -42,5 +43,20 @@ public class GoodsShelfSystem {
         }
 
         return false;
+    }
+
+    public int findCrateInSegment(GoodsCrate crate) {
+        int counter = 0;
+        for (GoodsSegment segment : segments) {
+            for (GoodsCrate crate1 : segment.compartments) {
+                if (crate1 != null) {
+                    if (crate1.height == crate.height) {
+                        return counter;
+                    }
+                }
+            }
+            counter++;
+        }
+        return -1;
     }
 }
