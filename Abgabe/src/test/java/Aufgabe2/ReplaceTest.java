@@ -1,4 +1,4 @@
-package de.qStivi.zettel9.Aufgabe2;
+package Aufgabe2;
 
 import org.junit.jupiter.api.Test;
 

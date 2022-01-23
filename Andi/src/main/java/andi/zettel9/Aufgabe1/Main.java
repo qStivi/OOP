@@ -1,19 +1,6 @@
 package andi.zettel9.Aufgabe1;
 
-import java.util.Locale;
-
 public class Main {
-
-    public static String replace(String source, String search, String replace) {
-        if (source.indexOf(search) != -1) {
-            String result = source;
-            int n = source.indexOf(search);
-            result = result.substring(0, n) + replace + result.substring(n + search.length(), source.length());
-            return replace(result, search, replace);
-        } else {
-            return source;
-        }
-    }
 
     public static boolean isReverse(String a, String b) {
         if (a.isEmpty() || b.isEmpty() || a.length() != b.length()) {
@@ -28,4 +15,16 @@ public class Main {
         }
         return true;
     }
+
+    public static String replace(String source, String search, String replace) {
+        if (source.indexOf(search) != -1) {
+            String result = source;
+            int n = source.indexOf(search);
+            result = result.substring(0, n) + replace + result.substring(n + search.length(), source.length());
+            return replace(result, search, replace);
+        } else {
+            return source;
+        }
+    }
+
 }

@@ -1,4 +1,4 @@
-package de.qStivi.zettel9.Aufgabe3;
+package Aufgabe3;
 
 public class GoodsCrate {
 
