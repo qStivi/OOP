@@ -9,6 +9,6 @@ public class Transition {
     public Transition(String startID, String endID, char SYMBOL) {
         this.startID = startID;
         this.endID = endID;
-        this.SYMBOL= SYMBOL;
+        this.SYMBOL = SYMBOL;
     }
 }
