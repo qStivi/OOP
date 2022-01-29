@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>troesser.glaue.hofmann</groupId>
-    <artifactId>Abgabe</artifactId>
+    <artifactId>OOP</artifactId>
     <packaging>pom</packaging>
     <version>1</version>
     <build>
@@ -20,6 +20,12 @@
             </plugin>
         </plugins>
     </build>
+    <modules>
+        <module>Abgabe</module>
+        <module>Andi</module>
+        <module>Julian</module>
+        <module>qStivi</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

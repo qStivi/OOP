@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>troesser.glaue.hofmann</groupId>
-    <artifactId>OOP</artifactId>
+    <artifactId>Andi</artifactId>
     <packaging>pom</packaging>
     <version>1</version>
     <build>
