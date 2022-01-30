@@ -31,7 +31,7 @@ public abstract class GenericAutomaton {
         if (findState(transition.endID) == null) {
             throw new StateDoesNotExistException();
         }
-        if (findSymbolInAlphabet(transition.SYMBOL)) {
+        if (findSymbolInAlphabet(transition.symbol)) {
             throw new SymbolNotInAlphabetException();
         }
         Transition[] newTransitions = Arrays.copyOf(transitions, transitions.length + 1);
@@ -40,7 +40,7 @@ public abstract class GenericAutomaton {
     }
 
     private boolean findSymbolInAlphabet(char symbol) {
-        for (char element : alphabet.SYMBOLS) {
+        for (char element : alphabet.symbols) {
             if (element == symbol) {
                 return true;
             }

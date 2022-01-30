@@ -4,11 +4,11 @@ public class Transition {
 
     protected String startID;
     protected String endID;
-    protected final char SYMBOL;
+    protected final char symbol;
 
     public Transition(String startID, String endID, char SYMBOL) {
         this.startID = startID;
         this.endID = endID;
-        this.SYMBOL = SYMBOL;
+        this.symbol = SYMBOL;
     }
 }
