@@ -14,7 +14,7 @@ public class DFA extends GenericAutomaton {
 
     public String delta(Character symbol) {
         for (Transition element : transitions) {
-            if (element.startID == current && element.SYMBOL == symbol){
+            if (element.startID == current && element.symbol == symbol){
                 current = element.endID;
                 return current;
             }
@@ -24,7 +24,7 @@ public class DFA extends GenericAutomaton {
 
     public void makeTransition(String q1, String q2, Character symbol) throws TransitionAlreadyExistsException, SymbolNotInAlphabetException, StateDoesNotExistException {
         for (Transition element : transitions) {
-            if (element.startID == q1 && element.endID == q2 && element.SYMBOL == symbol) {
+            if (element.startID == q1 && element.endID == q2 && element.symbol == symbol) {
                 throw new TransitionAlreadyExistsException();
             }
         }
