@@ -1,12 +1,8 @@
-package de.qStivi.zettel10;
+package Aufgabe1;
 
-import de.qStivi.zettel10.automaton.Alphabet;
-import de.qStivi.zettel10.automaton.GenericAutomaton;
-import de.qStivi.zettel10.automaton.State;
-import de.qStivi.zettel10.automaton.Transition;
-import de.qStivi.zettel10.exceptions.StateDoesNotExist;
-import de.qStivi.zettel10.exceptions.SymbolNotInAlphabet;
-import de.qStivi.zettel10.exceptions.TransitionAlreadyExists;
+import Aufgabe1.exceptions.StateDoesNotExist;
+import Aufgabe1.exceptions.SymbolNotInAlphabet;
+import Aufgabe1.exceptions.TransitionAlreadyExists;
 
 public class DFA extends GenericAutomaton {
     private String current;

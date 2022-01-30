@@ -10,6 +10,11 @@ public abstract class GenericAutomaton {
 
     protected State[] states;
     protected Transition[] transitions;
+
+    public Transition[] getTransitions() {
+        return transitions;
+    }
+
     protected Alphabet alphabet;
     protected String start;
 

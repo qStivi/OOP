@@ -1,4 +1,4 @@
-package de.qStivi.zettel10.exceptions;
+package Aufgabe1.exceptions;
 
 public class StateDoesNotExist extends Exception {
     public StateDoesNotExist(String startID) {

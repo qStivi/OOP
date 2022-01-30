@@ -1,4 +1,4 @@
-package de.qStivi.zettel10.exceptions;
+package Aufgabe1.exceptions;
 
 public class TransitionAlreadyExists extends Exception {
     public TransitionAlreadyExists(String startID, Character symbol) {

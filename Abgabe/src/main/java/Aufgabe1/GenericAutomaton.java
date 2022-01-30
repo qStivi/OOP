@@ -1,8 +1,8 @@
-package de.qStivi.zettel10.automaton;
+package Aufgabe1;
 
-import de.qStivi.zettel10.exceptions.StateAlreadyExists;
-import de.qStivi.zettel10.exceptions.StateDoesNotExist;
-import de.qStivi.zettel10.exceptions.SymbolNotInAlphabet;
+import Aufgabe1.exceptions.StateAlreadyExists;
+import Aufgabe1.exceptions.StateDoesNotExist;
+import Aufgabe1.exceptions.SymbolNotInAlphabet;
 
 import java.util.Arrays;
 
