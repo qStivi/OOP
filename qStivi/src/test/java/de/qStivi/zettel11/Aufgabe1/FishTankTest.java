@@ -2,6 +2,7 @@ package de.qStivi.zettel11.Aufgabe1;
 
 import de.qStivi.zettel11.Aufgabe1.creatures.*;
 import de.qStivi.zettel11.Aufgabe1.types.Carnivore;
+import de.qStivi.zettel11.Aufgabe1.types.Herbivore;
 import de.qStivi.zettel11.Aufgabe1.types.WrongTypeException;
 import org.junit.jupiter.api.Test;
 
@@ -41,7 +42,7 @@ class FishTankTest {
             assertEquals(2200, ft.getCreatures().get(5).getSize());
             assertEquals(1150, ft.getCreatures().get(9).getSize());
 
-            assertInstanceOf(Bellyray.class, ft.filter(bellyray).get(0));
+            assertInstanceOf(Herbivore.class, ft.filter(bellyray).get(0));
             assertEquals(2, ft.filter(bellyray).size());
 
             assertInstanceOf(Carnivore.class, ft.filter(quidshark).get(0));

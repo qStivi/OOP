@@ -26,7 +26,7 @@ public class FishTank {
         }
     }
 
-    public <T> List<SeaCreature> filter(T creature) {
+    public <T extends SeaCreature> List<SeaCreature> filter(T creature) {
         var list = new ArrayList<SeaCreature>();
         for (SeaCreature seaCreature : creatures) {
             if (seaCreature.getClass().isInstance(creature)) {
