@@ -15,6 +15,10 @@ public class FishTank extends SeaCreature {
         this.creatures = new ArrayList<>();
     }
 
+    public ArrayList<SeaCreature> getCreatures() {
+        return creatures;
+    }
+
     public void addCreature(SeaCreature creature) throws DontDoThatException{
         if(creature instanceof Leviathan){
             throw new DontDoThatException();
