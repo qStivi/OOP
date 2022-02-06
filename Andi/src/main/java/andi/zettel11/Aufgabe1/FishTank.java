@@ -7,7 +7,7 @@ import andi.zettel11.Aufgabe1.exception.DontDoThatException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FishTank extends SeaCreature {
+public class FishTank {
 
     private ArrayList<SeaCreature> creatures;
 
