@@ -16,8 +16,7 @@ public class FishTank {
     }
 
     public void addCreature(Seacreature creature) throws CreatureNotAllowedException {
-
-        if(creature instanceof Leviathan) {
+        if (creature instanceof Leviathan) {
             throw new CreatureNotAllowedException();
         } else {
             creatures.add(creature);
@@ -28,12 +27,11 @@ public class FishTank {
 
         List<Seacreature> output = new ArrayList<>();
 
-        for(Seacreature seacreature : this.creatures) {
-            if(seacreature.getClass().isInstance(creature)) {
+        for (Seacreature seacreature : this.creatures) {
+            if (seacreature.getClass().isInstance(creature)) {
                 output.add(seacreature);
             }
         }
         return output;
     }
-
 }

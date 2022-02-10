@@ -1,4 +1,4 @@
-a) Number oder Object
-b) String oder Object (Es wird aber nichts ausgeben, solange Liste leer ist...)
-c) Kann ein beliebiger Typ sein, welcher compareTo() implementiert (Wird einen Fehler zurückgeben, solange die Liste nicht mind. 2 Elemente beinhaltet.)
-d) Integer
+a) ? super Number
+b) ? (Es wird aber nichts ausgeben, solange Liste leer ist...)
+c) ? extends Comparable (Wird einen Fehler zurückgeben, solange die Liste nicht mind. 2 Elemente beinhaltet.)
+d) ? extends Integer (Geht nicht mit wildcard, weil Integer nicht Integer extended.Damit diese Funktion funktioniert muss als Generic Integer angegeben werden. (List<Integer>))

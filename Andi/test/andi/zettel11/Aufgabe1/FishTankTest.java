@@ -1,13 +1,12 @@
-package andi.zettel11.Aufgabe1;
+package zettel11.Aufgabe1;
 
+import andi.zettel11.Aufgabe1.FishTank;
 import andi.zettel11.Aufgabe1.creatures.*;
 import andi.zettel11.Aufgabe1.exception.DontDoThatException;
 import andi.zettel11.Aufgabe1.exception.WrongSizeException;
 import andi.zettel11.Aufgabe1.types.Carnivore;
 import andi.zettel11.Aufgabe1.types.Herbivore;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
