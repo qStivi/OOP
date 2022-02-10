@@ -16,7 +16,7 @@ public class Lambda {
 
     public static <T> String listToString(ArrayList<T> list){
         StringBuilder output= new StringBuilder("");
-        list.forEach(x -> output.append(x));
+        list.forEach(x -> output.append(x + " "));
         return  output.toString();
     }
 }
